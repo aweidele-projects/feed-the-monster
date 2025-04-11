@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Monster } from "./components/Monster";
+import { FoodGrid } from "./components/FoodGrid";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,11 +15,13 @@ function App() {
       </header>
       <main>
         <div className="max-w-5xl p-5 border m-auto">
-          <div className="flex gap-5 w-full">
+          <div className="flex gap-20 w-full">
             <div className="flex-1">
               <Monster />
             </div>
-            <div className="flex-1">Food?</div>
+            <div className="flex-1">
+              <FoodGrid />
+            </div>
           </div>
         </div>
       </main>
