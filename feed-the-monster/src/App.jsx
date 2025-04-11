@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { Monster } from "./components/Monster";
 import { FoodGrid } from "./components/FoodGrid";
+import { FoodProvider } from "./components/FoodContext";
 
 function App() {
   const [count, setCount] = useState(0);

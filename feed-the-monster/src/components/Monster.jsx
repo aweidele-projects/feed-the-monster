@@ -6,6 +6,8 @@ import invariant from "tiny-invariant";
 export const Monster = () => {
   const ref = useRef(null);
   const [isDraggedOver, setIsDraggedOver] = useState(false);
+  const [isFood, setIsFood] = useState(null);
+  const [fed, setFed] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
@@ -13,15 +15,43 @@ export const Monster = () => {
 
     return dropTargetForElements({
       element: el,
-      onDragEnter: () => setIsDraggedOver(true),
-      onDragLeave: () => setIsDraggedOver(false),
-      onDrop: () => setIsDraggedOver(false),
+      onDragEnter: ({ source }) => {
+        const data = source.data;
+        console.log(data?.isFood);
+        setIsDraggedOver(true);
+        setIsFood(data?.isFood);
+      },
+      onDragLeave: () => {
+        setIsDraggedOver(false);
+        setIsFood(null);
+      },
+      onDrop: ({ source }) => {
+        const data = source.data;
+        const itemIsFood = data?.isFood;
+        console.log(data?.isFood);
+        if (itemIsFood) {
+          setFed((prev) => prev + 1);
+        }
+        setIsDraggedOver(false);
+        setIsFood(null);
+      },
     });
   }, []);
 
+  let borderClass = null;
+  if (isDraggedOver) {
+    borderClass = isFood ? "border-blue-500 border-4" : "border-red-500 border-4";
+  }
+
   return (
-    <div ref={ref} className={isDraggedOver ? "border-b-sky-700 border-2" : null}>
-      <img src={monster} />
+    <div>
+      <div ref={ref} className={borderClass}>
+        <img src={monster} />
+      </div>
+      <div className="my-10">
+        <progress className="w-full" value={fed} max={6} />
+        <p className="mt-2 text-center font-bold text-lg text-green-700">{fed >= 6 ? "The monster is full!" : `Fed: ${fed}`}</p>
+      </div>
     </div>
   );
 };

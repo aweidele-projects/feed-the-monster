@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Food } from "./Food";
-const food = ["burger.svg", "chicken.svg", "chocolate.bar.svg", "fruitsalad.svg", "sundae.svg", "watermelon.svg"];
+const food = ["burger.svg", "chicken.svg", "chocolate-bar.svg", "fruitsalad.svg", "sundae.svg", "watermelon.svg"];
 
 export const FoodGrid = () => {
   const [images, setImages] = useState([]);
