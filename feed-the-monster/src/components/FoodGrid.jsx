@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Food } from "./Food";
 const food = ["burger.svg", "chicken.svg", "chocolate.bar.svg", "fruitsalad.svg", "sundae.svg", "watermelon.svg"];
 
 export const FoodGrid = () => {
@@ -22,9 +23,7 @@ export const FoodGrid = () => {
   return (
     <div className="grid grid-cols-4 gap-5 items-center">
       {images.map((img, index) => (
-        <div>
-          <img key={index} src={img.src} alt={img.alt} />
-        </div>
+        <Food key={index} {...img} />
       ))}
     </div>
   );
