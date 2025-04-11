@@ -1,3 +1,9 @@
+import monster from "./assets/images/monster.svg";
+
 export const Monster = () => {
-  return <p>Monster!</p>;
+  return (
+    <div>
+      <img src={monster} />
+    </div>
+  );
 };
