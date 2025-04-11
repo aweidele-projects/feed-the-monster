@@ -14,7 +14,7 @@ function App() {
         <h1 className="text-center text-5xl font-light uppercase">Feed the monster!</h1>
       </header>
       <main>
-        <div className="max-w-5xl p-5 border m-auto">
+        <div className="max-w-5xl p-5 m-auto">
           <div className="flex gap-20 w-full">
             <div className="flex-1">
               <Monster />

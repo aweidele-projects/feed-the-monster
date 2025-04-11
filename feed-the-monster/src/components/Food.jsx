@@ -5,6 +5,7 @@ import invariant from "tiny-invariant";
 export const Food = ({ src, alt, isFood }) => {
   const ref = useRef(null);
   const [dragging, setDragging] = useState(false);
+  console.log(dragging);
 
   useEffect(() => {
     const el = ref.current;

@@ -4,7 +4,7 @@ const food = ["burger.svg", "chicken.svg", "chocolate.bar.svg", "fruitsalad.svg"
 
 export const FoodGrid = () => {
   const [images, setImages] = useState([]);
-  console.log(images);
+
   useEffect(() => {
     const imageModules = import.meta.glob("./assets/images/food/*.svg", { eager: true });
     const imageList = Object.entries(imageModules).map(([path, module]) => {
