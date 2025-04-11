@@ -4,6 +4,8 @@ import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element
 import invariant from "tiny-invariant";
 import { FoodContext } from "./FoodContext";
 
+const fedScale = ["scale-[70%]", "scale-[76%]", "scale-[82%]", "scale-[88%]", "scale-[94%]", ""];
+
 export const Monster = () => {
   const { images, setImages } = useContext(FoodContext);
   const ref = useRef(null);
@@ -49,7 +51,7 @@ export const Monster = () => {
   return (
     <div>
       <div ref={ref} className={borderClass}>
-        <img src={monster} />
+        <img src={monster} className={`transition-all duration-1000 ${fedScale[fed]}`} />
       </div>
       <div className="my-10">
         <progress className="w-full" value={fed} max={6} />
