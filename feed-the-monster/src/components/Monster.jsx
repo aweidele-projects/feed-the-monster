@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 import monster from "./assets/images/monster.svg";
 import { dropTargetForElements } from "@atlaskit/pragmatic-drag-and-drop/element/adapter";
 import invariant from "tiny-invariant";
+import { FoodContext } from "./FoodContext";
 
 export const Monster = () => {
+  const { images, setImages } = useContext(FoodContext);
   const ref = useRef(null);
   const [isDraggedOver, setIsDraggedOver] = useState(false);
   const [isFood, setIsFood] = useState(null);
@@ -17,7 +19,7 @@ export const Monster = () => {
       element: el,
       onDragEnter: ({ source }) => {
         const data = source.data;
-        console.log(data?.isFood);
+        console.log(data);
         setIsDraggedOver(true);
         setIsFood(data?.isFood);
       },
@@ -31,6 +33,7 @@ export const Monster = () => {
         console.log(data?.isFood);
         if (itemIsFood) {
           setFed((prev) => prev + 1);
+          setImages((prev) => prev.filter((img) => img.alt !== data.alt));
         }
         setIsDraggedOver(false);
         setIsFood(null);

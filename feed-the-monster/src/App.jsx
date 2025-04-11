@@ -17,12 +17,14 @@ function App() {
       <main>
         <div className="max-w-5xl p-5 m-auto">
           <div className="flex gap-20 w-full">
-            <div className="flex-1">
-              <Monster />
-            </div>
-            <div className="flex-1">
-              <FoodGrid />
-            </div>
+            <FoodProvider>
+              <div className="flex-1">
+                <Monster />
+              </div>
+              <div className="flex-1">
+                <FoodGrid />
+              </div>
+            </FoodProvider>
           </div>
         </div>
       </main>

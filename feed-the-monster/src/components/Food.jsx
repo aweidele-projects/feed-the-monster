@@ -12,7 +12,7 @@ export const Food = ({ src, alt, isFood }) => {
 
     return draggable({
       element: el,
-      getInitialData: () => ({ isFood }),
+      getInitialData: () => ({ isFood, alt }),
       onDragStart: () => setDragging(true),
       onDrop: () => setDragging(false),
     });
